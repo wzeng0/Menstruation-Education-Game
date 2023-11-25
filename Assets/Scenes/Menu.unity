@@ -319,7 +319,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5188998361665112046, guid: b7a5af0cc903a794b9db67b8ad26c47c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1412602817}
+      addedObject: {fileID: 1412602820}
+    - targetCorrespondingSourceObject: {fileID: 5188998361665112046, guid: b7a5af0cc903a794b9db67b8ad26c47c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1412602819}
   m_SourcePrefab: {fileID: 100100000, guid: b7a5af0cc903a794b9db67b8ad26c47c, type: 3}
 --- !u!4 &363630179 stripped
 Transform:
@@ -938,7 +941,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5188998361665112046, guid: b7a5af0cc903a794b9db67b8ad26c47c, type: 3}
   m_PrefabInstance: {fileID: 363630178}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1412602817
+--- !u!114 &1412602819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -947,7 +950,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412602815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e0724a0867a4b1ea773405be2f78ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1412602820}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1412602820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412602815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ce93f7d0dfb416792d8d3e6030f5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1441311074
@@ -960,7 +1019,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1441311075}
   - component: {fileID: 1441311076}
-  - component: {fileID: 1441311077}
   m_Layer: 0
   m_Name: resume_btn
   m_TagString: Untagged
@@ -1035,18 +1093,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1441311077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441311074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ce93f7d0dfb416792d8d3e6030f5b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1461254920
 GameObject:
   m_ObjectHideFlags: 0
