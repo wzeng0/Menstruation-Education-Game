@@ -22,13 +22,12 @@ public class Send : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("pressed");
         green.GetComponent<SpriteRenderer>().sprite = pressed;
     }
 
     private void OnMouseUp()
     {
-        Debug.Log("let go");
         green.GetComponent<SpriteRenderer>().sprite = regular;
+
     }
 }
