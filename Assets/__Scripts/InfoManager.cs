@@ -19,6 +19,14 @@ public class InfoManager : MonoBehaviour
         "Could I get a menstrual cup? I lost my old one.", 
         "Hey! Can I get a heat pack? I took painkillers already but I'm still feeling some pain." 
     };
+    private Product[] answers = new Product[4]
+    {
+        Product.Liner,
+        Product.Advil,
+        Product.Cup,
+        Product.Heatpad
+    };
+
     private int promptIndex = 0;
 
     private void Awake()
@@ -37,5 +45,15 @@ public class InfoManager : MonoBehaviour
     void Update()
     {
         float randomNumber = Random.Range(0, 9);
+    }
+
+    void CheckAnswer()
+    {
+
+    }
+    
+    void NextClient()
+    {
+
     }
 }
