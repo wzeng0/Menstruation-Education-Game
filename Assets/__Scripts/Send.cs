@@ -7,6 +7,7 @@ public class Send : MonoBehaviour
     public GameObject green;
     public Sprite pressed;
     public Sprite regular;
+    public GameObject cameraObject;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,6 @@ public class Send : MonoBehaviour
     private void OnMouseUp()
     {
         green.GetComponent<SpriteRenderer>().sprite = regular;
-
+        StartCoroutine(cameraObject.GetComponent<InfoManager>().CheckAnswer(Box.contents));
     }
 }

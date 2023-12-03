@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tray : MonoBehaviour
 {
     public GameObject product;
+    public bool small;
     public bool alive;
 
     private GameObject spawn;
@@ -30,7 +31,13 @@ public class Tray : MonoBehaviour
     {
         spawn = Instantiate(product, transform.position, Quaternion.identity);
         alive = true;
-        spawn.transform.localScale = new Vector3(0.4f, 0.39f, 1);
+        if (!small)
+        {
+            spawn.transform.localScale = new Vector3(0.4f, 0.39f, 1);
+        } else
+        {
+            spawn.transform.localScale = new Vector3(0.1f, 0.1f, 1);
+        }
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 3;
         spawn.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
