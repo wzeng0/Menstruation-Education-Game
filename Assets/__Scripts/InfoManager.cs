@@ -10,7 +10,8 @@ public class InfoManager : MonoBehaviour
     public GameObject client;
     public GameObject box;
     public List<Sprite> clients;
-    public GameObject nextLevelButton;
+    public GameObject wonLevel;
+    public GameObject failedLevel;
     ProgressBar progressBar;
 
     private string[] prompts = new string[12] {
@@ -75,11 +76,13 @@ public class InfoManager : MonoBehaviour
 
     private int promptIndex = 0;
     private float progress = 0;
+    private int questionsAsked = 0;
 
     private void Awake()
     {
         // Initially disable the button and set the canvas group to be interactable
-        nextLevelButton.SetActive(false);
+        wonLevel.SetActive(false);
+        failedLevel.SetActive(false);
         progressBar = GameObject.FindGameObjectWithTag("Progress Bar").GetComponent<ProgressBar>();
     }
 
@@ -106,6 +109,7 @@ public class InfoManager : MonoBehaviour
 			promptIndex = 8;
             progress = 0.25f;
 		}
+        questionsAsked = 0;
         ClientDialogue.text = prompts[promptIndex];
     }
 
@@ -146,13 +150,18 @@ public class InfoManager : MonoBehaviour
     
     IEnumerator NextClient()
     {
+        questionsAsked +=1;
         promptIndex += 1;
         // Tentative
         // 5 items each level and progress bar is 75% filled (see function)
-        if (promptIndex == 5 && progressBar.LevelComplete()) {
+        if (questionsAsked == 5 && progressBar.LevelComplete()) {
             // Enable the button and disable the canvas group when the level is completed
-            nextLevelButton.SetActive(true);
-            yield return new WaitForSeconds(2.0f);
+            wonLevel.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene("Menu");
+        } else if (questionsAsked == 5) {
+            failedLevel.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Menu");
         }
         client.GetComponent<SpriteRenderer>().sprite = clients[Random.Range(0, 30)];
