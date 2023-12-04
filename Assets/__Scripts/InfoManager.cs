@@ -14,7 +14,7 @@ public class InfoManager : MonoBehaviour
     public GameObject failedLevel;
     ProgressBar progressBar;
 
-    private string[] prompts = new string[12] {
+    private string[] prompts = new string[15] {
         "Hi! On my last day and just ran out. Can I get a liner?", 
         "Can I get some Advil? My cramps just started.", 
         "Could I get a menstrual cup? I lost my old one.", 
@@ -26,9 +26,12 @@ public class InfoManager : MonoBehaviour
         "I just took some Tylenol but it's not working, do you have any other pills for pain?",
         "I hate how messy pads and liners feel, is there anything else I can use for the blood?",
         "I don't feel comfortable with tampons and cups, but I also don't like the texture of pads, is there any alternative?",
-        "I feel so nauseous and in pain I can barely stand. Please help!"
+        "I feel so nauseous and in pain I can barely stand. Please help!",
+        "",
+        "",
+        ""
     };
-    private Product[] answers = new Product[12]
+    private Product[] answers = new Product[15]
     {
         Product.Liner,
         Product.Advil,
@@ -41,7 +44,11 @@ public class InfoManager : MonoBehaviour
         Product.Advil,
         Product.Tampon | Product.Cup,
         Product.Underwear,
-        Product.Referral
+        Product.Referral,
+        // Do something about the last 3 - not accurate
+        Product.Liner,
+        Product.Liner,
+        Product.Liner,
     };
     private string[] correct = new string[12]
     {
@@ -58,7 +65,7 @@ public class InfoManager : MonoBehaviour
         "Wow, I never heard of these. Thanks!",
         "Thank you..."
     };
-    private string[] incorrect = new string[12]
+    private string[] incorrect = new string[15]
     {
         "I was hoping for just a liner, but thank you.",
         "Oh I just wanted some Advil, but thanks.",
@@ -71,12 +78,17 @@ public class InfoManager : MonoBehaviour
         "Oh, guess there's no more Advil. I'll try to go home early.",
         "That's not what I needed. (Tampons or cup)",
         "Thought y'all might have some period underwear. Thanks tho!",
-        "Thanks, but can I see the nurse? I don't think I can go back to class."
+        "Thanks, but can I see the nurse? I don't think I can go back to class.",
+        "",
+        "",
+        ""
     };
 
     private int promptIndex = 0;
     private float progress = 0;
     private int questionsAsked = 0;
+    private HashSet<int> visitedSet;
+    private int lastIndex = 0;
 
     private void Awake()
     {
@@ -97,26 +109,31 @@ public class InfoManager : MonoBehaviour
 		if (sceneName == "Level 2") 
 		{
 			promptIndex = 0;
+            lastIndex = 5;
             progress = 0.20f;
 		}
 		else if (sceneName == "Level 4")
 		{
-			promptIndex = 4;
+			promptIndex = 5;
+            lastIndex = 10;
             progress = 0.25f;
 		}
         else if (sceneName == "Level 5")
 		{
-			promptIndex = 7;
+			promptIndex = 10;
+            lastIndex = 15;
             progress = 0.25f;
 		}
         questionsAsked = 0;
+        visitedSet = new HashSet<int>();
+        nextPrompt();
         ClientDialogue.text = prompts[promptIndex];
     }
 
     // Update is called once per frame
     void Update()
     {
-        float randomNumber = Random.Range(0, 9);
+
     }
 
     public IEnumerator CheckAnswer(List<Product> box)
@@ -151,7 +168,6 @@ public class InfoManager : MonoBehaviour
     IEnumerator NextClient()
     {
         questionsAsked +=1;
-        promptIndex += 1;
         // Tentative
         // 5 items each level and progress bar is 75% filled (see function)
         if (questionsAsked == 5 && progressBar.LevelComplete()) {
@@ -161,7 +177,24 @@ public class InfoManager : MonoBehaviour
             failedLevel.SetActive(true);
             yield return new WaitForSeconds(1.5f);
         }
+        nextPrompt();
         client.GetComponent<SpriteRenderer>().sprite = clients[Random.Range(0, 30)];
         ClientDialogue.text = prompts[promptIndex];
+    }
+
+    public int numQuestionsAsked() {
+        return questionsAsked;
+    }
+
+    private void nextPrompt() {
+        int randomNumber = Random.Range(0, lastIndex);
+        while (visitedSet.Contains(randomNumber) && questionsAsked < 5) {
+            randomNumber = Random.Range(0, lastIndex);
+        }
+        if (questionsAsked < 5) 
+        {
+            visitedSet.Add(randomNumber);
+            promptIndex = randomNumber;
+        }
     }
 }
