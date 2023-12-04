@@ -11,6 +11,7 @@ public class InfoManager : MonoBehaviour
     public GameObject box;
     public List<Sprite> clients;
     public GameObject nextLevelButton;
+    ProgressBar progressBar;
 
     private string[] prompts = new string[12] {
         "Hi! On my last day and just ran out. Can I get a liner?", 
@@ -78,6 +79,7 @@ public class InfoManager : MonoBehaviour
     {
         // Initially disable the button and set the canvas group to be interactable
         nextLevelButton.SetActive(false);
+        progressBar = GameObject.FindGameObjectWithTag("Progress Bar").GetComponent<ProgressBar>();
     }
 
     void Start()
@@ -126,6 +128,7 @@ public class InfoManager : MonoBehaviour
         if (contains) {
             box.Clear();
             ClientDialogue.text = correct[promptIndex];
+            progressBar.UpdateProgress(0.25f);
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(NextClient());
         } else
