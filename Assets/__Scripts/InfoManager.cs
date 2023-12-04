@@ -94,7 +94,7 @@ public class InfoManager : MonoBehaviour
 		if (sceneName == "Level 2") 
 		{
 			promptIndex = 0;
-            progress = 0.25f;
+            progress = 0.20f;
 		}
 		else if (sceneName == "Level 4")
 		{
@@ -147,7 +147,9 @@ public class InfoManager : MonoBehaviour
     IEnumerator NextClient()
     {
         promptIndex += 1;
-        if (progressBar.LevelComplete()) {
+        // Tentative
+        // 5 items each level and progress bar is 75% filled (see function)
+        if (promptIndex == 5 && progressBar.LevelComplete()) {
             // Enable the button and disable the canvas group when the level is completed
             nextLevelButton.SetActive(true);
             yield return new WaitForSeconds(2.0f);

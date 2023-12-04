@@ -25,8 +25,10 @@ public class ProgressBar : MonoBehaviour
     {
         targetProgress += value;
     }
+
+    // Check if the progress bar is at least 75% filled
     public bool LevelComplete() {
-        if (slider.value == 1) {
+        if (slider.value >= .75f) {
             return true;
         }
         return false;
