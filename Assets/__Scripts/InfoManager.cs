@@ -9,10 +9,6 @@ public class InfoManager : MonoBehaviour
     public TMP_Text ClientDialogue;
     public GameObject client;
     public GameObject box;
-
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
     public List<Sprite> clients;
     public GameObject nextLevelButton;
 
@@ -80,9 +76,6 @@ public class InfoManager : MonoBehaviour
 
     private void Awake()
     {
-        heart1.gameObject.SetActive(false);
-        heart2.gameObject.SetActive(false);
-        heart3.gameObject.SetActive(false);
         // Initially disable the button and set the canvas group to be interactable
         nextLevelButton.SetActive(false);
     }
@@ -133,14 +126,12 @@ public class InfoManager : MonoBehaviour
         if (contains) {
             box.Clear();
             ClientDialogue.text = correct[promptIndex];
-            HeartAwake();
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(NextClient());
         } else
         {
             box.Clear();
             ClientDialogue.text = incorrect[promptIndex];
-            heart1.gameObject.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(NextClient());
         }
@@ -161,20 +152,5 @@ public class InfoManager : MonoBehaviour
         }
         client.GetComponent<SpriteRenderer>().sprite = clients[Random.Range(0, 30)];
         ClientDialogue.text = prompts[promptIndex];
-        HeartAsleep();
-    }
-
-    void HeartAwake()
-    {
-        heart1.gameObject.SetActive(true);
-        heart2.gameObject.SetActive(true);
-        heart3.gameObject.SetActive(true);
-    }
-
-    void HeartAsleep()
-    {
-        heart1.gameObject.SetActive(false);
-        heart2.gameObject.SetActive(false);
-        heart3.gameObject.SetActive(false);
     }
 }
