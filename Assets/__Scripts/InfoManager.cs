@@ -106,7 +106,7 @@ public class InfoManager : MonoBehaviour
 		}
         else if (sceneName == "Level 5")
 		{
-			promptIndex = 8;
+			promptIndex = 7;
             progress = 0.25f;
 		}
         questionsAsked = 0;
@@ -155,14 +155,11 @@ public class InfoManager : MonoBehaviour
         // Tentative
         // 5 items each level and progress bar is 75% filled (see function)
         if (questionsAsked == 5 && progressBar.LevelComplete()) {
-            // Enable the button and disable the canvas group when the level is completed
             wonLevel.SetActive(true);
             yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("Menu");
         } else if (questionsAsked == 5) {
             failedLevel.SetActive(true);
             yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("Menu");
         }
         client.GetComponent<SpriteRenderer>().sprite = clients[Random.Range(0, 30)];
         ClientDialogue.text = prompts[promptIndex];
