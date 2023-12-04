@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class InfoManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class InfoManager : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
     public List<Sprite> clients;
+    public GameObject nextLevelButton;
 
     private string[] prompts = new string[12] {
         "Hi! On my last day and just ran out. Can I get a liner?", 
@@ -81,10 +83,30 @@ public class InfoManager : MonoBehaviour
         heart1.gameObject.SetActive(false);
         heart2.gameObject.SetActive(false);
         heart3.gameObject.SetActive(false);
+        // Initially disable the button and set the canvas group to be interactable
+        nextLevelButton.SetActive(false);
     }
 
     void Start()
     {
+        // Create a temporary reference to the current scene.
+		Scene currentScene = SceneManager.GetActiveScene();
+
+		// Retrieve the name of this scene.
+		string sceneName = currentScene.name;
+
+		if (sceneName == "Easy") 
+		{
+			promptIndex = 0;
+		}
+		else if (sceneName == "Hard")
+		{
+			promptIndex = 4;
+		}
+        else if (sceneName == "Intermediate")
+		{
+			promptIndex = 8;
+		}
         ClientDialogue.text = prompts[promptIndex];
     }
 
@@ -128,8 +150,10 @@ public class InfoManager : MonoBehaviour
     {
         promptIndex += 1;
         if (promptIndex == 4) {
-            ClientDialogue.text = "fast forwarding to harder level";
+            // Enable the button and disable the canvas group when the level is completed
+            nextLevelButton.SetActive(true);
             yield return new WaitForSeconds(2.0f);
+            SceneManager.LoadScene("Menu");
         }
         if (promptIndex == 12)
         {
