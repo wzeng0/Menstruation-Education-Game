@@ -74,6 +74,7 @@ public class InfoManager : MonoBehaviour
     };
 
     private int promptIndex = 0;
+    private float progress = 0;
 
     private void Awake()
     {
@@ -90,17 +91,20 @@ public class InfoManager : MonoBehaviour
 		// Retrieve the name of this scene.
 		string sceneName = currentScene.name;
 
-		if (sceneName == "Easy") 
+		if (sceneName == "Level 2") 
 		{
 			promptIndex = 0;
+            progress = 0.25f;
 		}
-		else if (sceneName == "Hard")
+		else if (sceneName == "Level 4")
 		{
 			promptIndex = 4;
+            progress = 0.25f;
 		}
-        else if (sceneName == "Intermediate")
+        else if (sceneName == "Level 5")
 		{
 			promptIndex = 8;
+            progress = 0.25f;
 		}
         ClientDialogue.text = prompts[promptIndex];
     }
@@ -128,7 +132,7 @@ public class InfoManager : MonoBehaviour
         if (contains) {
             box.Clear();
             ClientDialogue.text = correct[promptIndex];
-            progressBar.UpdateProgress(0.25f);
+            progressBar.UpdateProgress(progress);
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(NextClient());
         } else
@@ -143,15 +147,11 @@ public class InfoManager : MonoBehaviour
     IEnumerator NextClient()
     {
         promptIndex += 1;
-        if (promptIndex == 4) {
+        if (progressBar.LevelComplete()) {
             // Enable the button and disable the canvas group when the level is completed
             nextLevelButton.SetActive(true);
             yield return new WaitForSeconds(2.0f);
             SceneManager.LoadScene("Menu");
-        }
-        if (promptIndex == 12)
-        {
-            // minigame finished, go to score screen
         }
         client.GetComponent<SpriteRenderer>().sprite = clients[Random.Range(0, 30)];
         ClientDialogue.text = prompts[promptIndex];

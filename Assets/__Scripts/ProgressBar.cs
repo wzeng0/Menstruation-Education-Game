@@ -25,4 +25,10 @@ public class ProgressBar : MonoBehaviour
     {
         targetProgress += value;
     }
+    public bool LevelComplete() {
+        if (slider.value == 1) {
+            return true;
+        }
+        return false;
+    }
 }
