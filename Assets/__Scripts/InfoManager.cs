@@ -84,7 +84,7 @@ public class InfoManager : MonoBehaviour
         "Oh, I just wanted some Advil, but thanks.",
         "I needed a tampon, but thanks anyways.",
         "Either a pad or tampon would've worked.",
-        "Are there no more pads? That's okay, thank you."
+        "Are there no more pads? That's okay, thank you.",
 
         // level 4
         "I think menstrual cups are more environmentally friendly.",
@@ -94,7 +94,7 @@ public class InfoManager : MonoBehaviour
         "Ah, I was hoping there'd be tea or hot water. Thanks though, bye.",
 
         // Level 5
-        "I'd prefer not to use that. Some tea or a heat pad would've been helpful."
+        "I'd prefer not to use that. Some tea or a heat pad would've been helpful.",
         "Hmm I'm not sure. I heard tampons and cups could work better.",
         "Thanks, but can I see the nurse? I don't think I can go back to class.",
         "A friend recently tried period underwear, I was hoping you had some!",
