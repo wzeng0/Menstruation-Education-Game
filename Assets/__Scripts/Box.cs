@@ -68,6 +68,15 @@ public class Box : MonoBehaviour
                 contents.Add(Product.Heatpad);
                 break;
             case "nurse(Clone)":
+                // Retrieve the current value from PlayerPrefs
+                int currentValue = PlayerPrefs.GetInt("NumRef", 0);
+
+                // Decrement the value
+                currentValue--;
+                // Save the decremented value back to PlayerPrefs
+                PlayerPrefs.SetInt("NumRef", currentValue);
+                PlayerPrefs.Save();
+
                 contents.Remove(Product.Referral);
                 contents.Add(Product.Referral);
                 break;

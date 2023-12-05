@@ -13,6 +13,7 @@ public class InfoManager : MonoBehaviour
     public GameObject wonLevel;
     public GameObject failedLevel;
     ProgressBar progressBar;
+    public TextMeshPro NurseReferrals; 
 
     private string[] prompts = new string[15] {
 
@@ -136,12 +137,14 @@ public class InfoManager : MonoBehaviour
 			promptIndex = 5;
             lastIndex = 10;
             progress = 0.20f;
+            PlayerPrefs.SetInt("NumRef", 2);
 		}
         else if (sceneName == "Level 5")
 		{
 			promptIndex = 10;
             lastIndex = 15;
             progress = 0.20f;
+            PlayerPrefs.SetInt("NumRef", 1);
 		}
         questionsAsked = 0;
         visitedSet = new HashSet<int>();
@@ -152,7 +155,7 @@ public class InfoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        NurseReferrals.text = PlayerPrefs.GetInt("NumRef", 0) + "*";
     }
 
     public IEnumerator CheckAnswer(List<Product> box)
