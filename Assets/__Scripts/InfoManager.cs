@@ -135,14 +135,14 @@ public class InfoManager : MonoBehaviour
 			promptIndex = 5;
             lastIndex = 10;
             progress = 0.20f;
-            PlayerPrefs.SetInt("NumRef", 2);
+            PlayerPrefs.SetInt("NumRef", 3);
 		}
         else if (sceneName == "Level 5")
 		{
 			promptIndex = 10;
             lastIndex = 15;
             progress = 0.20f;
-            PlayerPrefs.SetInt("NumRef", 1);
+            PlayerPrefs.SetInt("NumRef", 2);
 		}
         questionsAsked = 0;
         visitedSet = new HashSet<int>();
