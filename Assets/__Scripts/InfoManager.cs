@@ -106,7 +106,7 @@ public class InfoManager : MonoBehaviour
 		// Retrieve the name of this scene.
 		string sceneName = currentScene.name;
 
-		if (sceneName == "Level 2") 
+		if (sceneName == "Level 1") 
 		{
 			promptIndex = 0;
             lastIndex = 5;
