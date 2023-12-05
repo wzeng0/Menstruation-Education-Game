@@ -27,8 +27,10 @@ public class CameraMovement : MonoBehaviour
     {
         // Calculate the new position of the camera
         Vector3 newPosition = transform.position + moveDirection * moveSpeed * Time.deltaTime;
-        if (newPosition.x >= -12) {
+        if (newPosition.x >= -12.5 && newPosition.x <= -11) {
             arrow.SetActive(true);
+        } else {
+            arrow.SetActive(false);
         }
 
         // Update the position of the camera

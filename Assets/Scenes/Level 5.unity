@@ -8265,14 +8265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Progress Bar
       objectReference: {fileID: 0}
-    - target: {fileID: 2213782181547208510, guid: 06d2bb06d2f0a417db626ca03161586a, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7072277436618495488, guid: 06d2bb06d2f0a417db626ca03161586a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7072277436618495488, guid: 06d2bb06d2f0a417db626ca03161586a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
