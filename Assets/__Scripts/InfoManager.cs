@@ -135,13 +135,13 @@ public class InfoManager : MonoBehaviour
 		{
 			promptIndex = 5;
             lastIndex = 10;
-            progress = 0.25f;
+            progress = 0.20f;
 		}
         else if (sceneName == "Level 5")
 		{
 			promptIndex = 10;
             lastIndex = 15;
-            progress = 0.25f;
+            progress = 0.20f;
 		}
         questionsAsked = 0;
         visitedSet = new HashSet<int>();
