@@ -45,6 +45,8 @@ public class CharacterAnimation : MonoBehaviour
             animationIndex = 3;
             PlayAnimation();
         } else if (Input.GetKeyDown(KeyCode.UpArrow) && arrow.activeSelf) {
+            SceneManager.LoadScene(PlayerPrefs.GetString("Day"));
+        } else if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene("Menu");
         }
     }
