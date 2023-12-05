@@ -15,9 +15,14 @@ public class InfoManager : MonoBehaviour
     ProgressBar progressBar;
 
     private string[] prompts = new string[15] {
-        "Hi! On my last day and just ran out. Can I get a liner?", 
+
+        // level 1
+        "Hi! Can I get a liner? I'm on my last day and just ran out.", 
         "Can I get some Advil? My cramps just started.", 
         "Could I get a menstrual cup? I lost my old one.", 
+        
+
+        // level 4, 3 nurse referrals
         "Hey! Can I get a heatpad? I took painkillers already but I'm still feeling some pain.",
         "Do you have an environmentally friendly alternative to pads? I'm doing a zero waste challenge.",
         "Do you have any natural pain relief?",
@@ -28,8 +33,15 @@ public class InfoManager : MonoBehaviour
         "I don't feel comfortable with tampons and cups, but I also don't like the texture of pads, is there any alternative?",
         "I feel so nauseous and in pain I can barely stand. Please help!",
         "",
-        "",
-        ""
+
+
+        // level 5: heating pads + menstrual underwear, 2 nurse referrals
+        "I keep bleeding through my underwear. Do you have anything that may solve this issue?",
+        "My stomach hurts so much, I can barely stand. Are painkillers a good option?" // nurse referral 1
+
+
+
+        
     };
     private Product[] answers = new Product[15]
     {
@@ -55,7 +67,7 @@ public class InfoManager : MonoBehaviour
         "Thanks! That's just what I needed.",
         "Awesome, see ya!",
         "Cool, have a nice day!",
-        "Thank you :)",
+        "Thank you!!",
         "Great, thank you!",
         "Nice! Bye!",
         "You're a lifesaver, thanks!",
@@ -63,10 +75,11 @@ public class InfoManager : MonoBehaviour
         "Amazing, thank you!",
         "Thanks! I'll try it out.",
         "Wow, I never heard of these. Thanks!",
-        "Thank you..."
+        "Thank you!"
     };
     private string[] incorrect = new string[15]
     {
+        // level 1
         "I was hoping for just a liner, but thank you.",
         "Oh I just wanted some Advil, but thanks.",
         "I wanted a cup, but thanks anyway.",
@@ -82,6 +95,12 @@ public class InfoManager : MonoBehaviour
         "",
         "",
         ""
+
+        // level 4
+
+
+
+        // level 5
     };
 
     private int promptIndex = 0;
