@@ -752,7 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ce93f7d0dfb416792d8d3e6030f5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level 5
+  sceneToLoad: Hallway
+  currentDay: Level 5
 --- !u!4 &376887718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5410374593769227232, guid: b7a5af0cc903a794b9db67b8ad26c47c, type: 3}
@@ -771,6 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
+  currentDay: 
 --- !u!1 &417011194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5188998361665112046, guid: b7a5af0cc903a794b9db67b8ad26c47c, type: 3}
@@ -849,7 +851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ce93f7d0dfb416792d8d3e6030f5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level 1
+  sceneToLoad: Hallway
+  currentDay: Level 1
 --- !u!1 &450895142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,7 +2449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ce93f7d0dfb416792d8d3e6030f5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level 4
+  sceneToLoad: Hallway
+  currentDay: Level 4
 --- !u!114 &1650225491
 MonoBehaviour:
   m_ObjectHideFlags: 0

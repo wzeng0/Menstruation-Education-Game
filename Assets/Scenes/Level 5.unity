@@ -1186,11 +1186,11 @@ RectTransform:
   - {fileID: 1905539525}
   - {fileID: 1134704289}
   - {fileID: 307987540}
-  - {fileID: 549554460}
-  - {fileID: 1954608650}
   - {fileID: 1759337931}
   - {fileID: 1381763844}
   - {fileID: 501848097}
+  - {fileID: 549554460}
+  - {fileID: 1954608650}
   - {fileID: 1614694131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2154,6 +2154,26 @@ PrefabInstance:
     - target: {fileID: 6642336928969407442, guid: 9d1ee5206624c4547865757b7198e3e9, type: 3}
       propertyPath: m_Name
       value: FailedLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848835974085269246, guid: 9d1ee5206624c4547865757b7198e3e9, type: 3}
+      propertyPath: currentDay
+      value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848835974085269246, guid: 9d1ee5206624c4547865757b7198e3e9, type: 3}
+      propertyPath: sceneToLoad
+      value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534063155142597281, guid: 9d1ee5206624c4547865757b7198e3e9, type: 3}
+      propertyPath: currentDay
+      value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534063155142597281, guid: 9d1ee5206624c4547865757b7198e3e9, type: 3}
+      propertyPath: sceneToLoad
+      value: Hallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123416751399740960, guid: 9d1ee5206624c4547865757b7198e3e9, type: 3}
+      propertyPath: m_text
+      value: Back
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7520,6 +7540,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 216889532}
     m_Modifications:
+    - target: {fileID: 1655372976052206104, guid: 541180adefb24409fab3cad2d053f08d, type: 3}
+      propertyPath: currentDay
+      value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655372976052206104, guid: 541180adefb24409fab3cad2d053f08d, type: 3}
+      propertyPath: sceneToLoad
+      value: Hallway
+      objectReference: {fileID: 0}
     - target: {fileID: 2844097590422715466, guid: 541180adefb24409fab3cad2d053f08d, type: 3}
       propertyPath: m_Name
       value: CompleteLevel
@@ -7603,6 +7631,10 @@ PrefabInstance:
     - target: {fileID: 5321234657988718640, guid: 541180adefb24409fab3cad2d053f08d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793491303002421956, guid: 541180adefb24409fab3cad2d053f08d, type: 3}
+      propertyPath: m_text
+      value: Back
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
