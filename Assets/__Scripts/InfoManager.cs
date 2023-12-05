@@ -17,50 +17,49 @@ public class InfoManager : MonoBehaviour
     private string[] prompts = new string[15] {
 
         // level 1
-        "Hi! Can I get a liner? I'm on my last day and just ran out.", 
-        "Can I get some Advil? My cramps just started.", 
-        "Could I get a menstrual cup? I lost my old one.", 
-        
+        "Hi! Can I get a liner, please?", 
+        "Can I get some Advil? I have some mild cramps.",
+        "May I have a tampon please?",
+        "I just got my first period! Can I have a pad or tampon?",
+        "My friend ran out of pads. Can I have a few?",
 
-        // level 4, 3 nurse referrals
-        "Hey! Can I get a heatpad? I took painkillers already but I'm still feeling some pain.",
+        // level 4
         "Do you have an environmentally friendly alternative to pads? I'm doing a zero waste challenge.",
-        "Do you have any natural pain relief?",
-        "Do you have anything for blood? I've run out of products.",
-        "My stomach feels unsettled, is there anything warm to drink?",
+        "I took painkillers already but I'm still feeling some pain. Would a heatpad help?",
         "I just took some Tylenol but it's not working, do you have any other pills for pain?",
-        "I hate how messy pads and liners feel, is there anything else I can use for the blood?",
-        "I don't feel comfortable with tampons and cups, but I also don't like the texture of pads, is there any alternative?",
-        "I feel so nauseous and in pain I can barely stand. Please help!",
-        "",
+        "Do you have anything for period bleeding? I've run out of products.",
+        "My stomach feels unsettled, is there anything warm to drink?",
 
-
-        // level 5: heating pads + menstrual underwear, 2 nurse referrals
-        "I keep bleeding through my underwear. Do you have anything that may solve this issue?",
-        "My stomach hurts so much, I can barely stand. Are painkillers a good option?" // nurse referral 1
-
-
-
+        // Level 5
+        "Do you have any natural pain relief?",
+        "I hate how messy pads and liners feel, are there any alternatives?",
+        "My stomach hurts so much, I can barely stand. Painkillers make it worse! Can you help?",
+        "I keep bleeding through my underwear and ruining clothing. Help please!",
+        "I have swimming lessons this afternoon but am on my period. Can any products be used in water?",
         
     };
     private Product[] answers = new Product[15]
     {
+        // Level 1
         Product.Liner,
         Product.Advil,
+        Product.Tampon,
+        Product.Pad | Product.Tampon,
+        Product.Pad,
+
+        // level 4
         Product.Cup,
         Product.Heatpad,
-        Product.Cup | Product.Underwear,
-        Product.Tea | Product.Heatpad,
+        Product.Advil,
         Product.Pad | Product.Tampon | Product.Liner | Product.Cup | Product.Underwear,
         Product.Tea,
-        Product.Advil,
+
+        // Level 5
+        Product.Tea | Product.Heatpad,
         Product.Tampon | Product.Cup,
-        Product.Underwear,
         Product.Referral,
-        // Do something about the last 3 - not accurate
-        Product.Liner,
-        Product.Liner,
-        Product.Liner,
+        Product.Underwear,
+        Product.Tampon | Product.Cup,
     };
     private string[] correct = new string[12]
     {
@@ -74,33 +73,32 @@ public class InfoManager : MonoBehaviour
         "That's perfect!",
         "Amazing, thank you!",
         "Thanks! I'll try it out.",
-        "Wow, I never heard of these. Thanks!",
+        "This is great. Thanks!",
         "Thank you!"
     };
     private string[] incorrect = new string[15]
     {
-        // level 1
+        
+        // Level 1
         "I was hoping for just a liner, but thank you.",
-        "Oh I just wanted some Advil, but thanks.",
-        "I wanted a cup, but thanks anyway.",
-        "D: I guess there were no more heatpads.",
-        "Was hoping you would have some cups or period underwear, but thanks anyways!",
-        "Oh, I thought y'all might have some tea or heatpads or something.",
-        "Guess y'all didn't have anymore either.",
-        "Ah, I was hoping there'd be tea or hot water. Thanks though, bye.",
-        "Oh, guess there's no more Advil. I'll try to go home early.",
-        "That's not what I needed. (Tampons or cup)",
-        "Thought y'all might have some period underwear. Thanks tho!",
-        "Thanks, but can I see the nurse? I don't think I can go back to class.",
-        "",
-        "",
-        ""
+        "Oh, I just wanted some Advil, but thanks.",
+        "I needed a tampon, but thanks anyways.",
+        "Either a pad or tampon would've worked.",
+        "Are there no more pads? That's okay, thank you."
 
         // level 4
+        "I think menstrual cups are more environmentally friendly.",
+        "Oh, I thought y'all might have some hot tea or water.",
+        "Oh, guess there's no more Advil. I'll try to go home early.",
+        "I don't think this helps. A pad, tampon, cup, pad, or even underwear would've sufficed.",
+        "Ah, I was hoping there'd be tea or hot water. Thanks though, bye.",
 
-
-
-        // level 5
+        // Level 5
+        "I'd prefer not to use that. Some tea or a heat pad would've been helpful."
+        "Hmm I'm not sure. I heard tampons and cups could work better.",
+        "Thanks, but can I see the nurse? I don't think I can go back to class.",
+        "A friend recently tried period underwear, I was hoping you had some!",
+        "I heard tampons can be used when swimming.",
     };
 
     private int promptIndex = 0;
